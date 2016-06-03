@@ -1,6 +1,7 @@
 {
     "name": "lemonphp/phprun",
-    "version": "1.0.0",
+    "type": "library",
+    "keywords": ["task runner", "task", "runner"],
     "description": "A task runner",
     "license": "MIT",
     "homepage": "https://github.com/lemonphp/phprun",
@@ -24,15 +25,20 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "symfony/yaml": "^3.0",
+        "symfony/process": "^3.0",
         "symfony/console": "^3.0",
         "symfony/event-dispatcher": "^3.0",
-        "pimple/pimple": "~3.0"
+        "symfony/finder": "^3.0",
+        "deployer/phar-update": "^1.0",
+        "pimple/pimple": "^3.0",
+        "phpseclib/phpseclib": "~2.0",
+        "lemonphp/cli": "^0.2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.8"
     },
     "config": {
-        "bin-dir": "bin",
         "preferred-install": "dist"
     }
 }

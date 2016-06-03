@@ -34,8 +34,8 @@ if (defined('RUN_AUTOLOAD_FILE')) {
 $input  = new \Symfony\Component\Console\Input\ArgvInput();
 $output = new \Symfony\Component\Console\Output\ConsoleOutput();
 
-$app = new \Lemon\PHPRun\App();
+$app = new \Lemon\PHPRun\PHPRun('PHPRun', '1.0.0');
 
-require dirname(__DIR__) . '/runtasks.php';
+require dirname(__DIR__) . '/phprun.php';
 
 $app->run($input, $output);
