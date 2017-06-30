@@ -10,12 +10,16 @@ use Lemon\PHPRun\PHPRun;
 
 function set($key, $value)
 {
-
+    PHPRun::get()->parameters->set($key, $value);
 }
 
 function get($key, $default = null)
 {
-
+    try {
+        return PHPRun::get()->parameters->get($key);
+    } catch (\RuntimeException $e) {
+        return $default;
+    }
 }
 
 function env($key = null, $value = null)

@@ -10,7 +10,6 @@ use Lemon\PHPRun\Provider\AppServiceProvider;
 use Lemon\PHPRun\Console\Command\InitialCommand;
 
 /**
- * @property-read \Lemon\Cli\Console\ContainerAwareApplication $console
  * @property-read \Lemon\PHPRun\Type\Collection $servers
  * @property-read \Lemon\PHPRun\Type\Collection $environments
  * @property-read \Lemon\PHPRun\Type\Collection $parameters
@@ -21,6 +20,11 @@ class PHPRun extends App
 {
     protected static $instance;
 
+    /**
+     * Get current instance
+     *
+     * @return \Lemon\PHPRun\PHPRun
+     */
     public static function get()
     {
         return self::$instance;
@@ -41,18 +45,17 @@ class PHPRun extends App
         self::$instance = $this;
     }
 
-    public function __get($key)
-    {
-        if (isset($this->container[$key])) {
-            return $this->container[$key];
-        }
-    }
-
     public function run(InputInterface $input = null, OutputInterface $output = null)
     {
         // TODO: add task command
         parent::run($input, $output);
     }
+
+    public function addTask();
+    public function getTasks();
+    public function runTask();
+
+    public function addServer();
 
     protected function createSelfUpdateCommand()
     {
